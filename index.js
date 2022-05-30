@@ -59,6 +59,8 @@ app.post('/whatsapp', async function (req, res) {
     default:
       template = 'boas_vindas'
   }
+
+  try {
  
   await fetch('https://graph.facebook.com/v13.0/100679882671832/messages', {
     method: 'post',
@@ -71,6 +73,9 @@ app.post('/whatsapp', async function (req, res) {
 
   received_updates.unshift(req.body);
   res.sendStatus(200);
+  }
+
+  catch(err){return res.send(err)}
 });
 
 app.listen();
