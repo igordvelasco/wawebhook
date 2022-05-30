@@ -44,7 +44,7 @@ app.post('/whatsapp', async function (req, res) {
     // }
 
     console.log('reply do botão ', JSON.stringify(req.body))
-    return
+    return res.send("ok")
   
   const message = req.body.entry[0].changes[0].value.messages[0].text.body;
   const phone = req.body.entry[0].changes[0].value.messages[0].from;
