@@ -18,12 +18,11 @@ const token = process.env.TOKEN || 'token';
 const received_updates = [];
 
 
-app.get('/', (req, res) => res.send('esta caralha esta funcionando com a buceta do token ' + jwt))
 
-// app.get('/', function (req, res) {
-//   console.log(req);
-//   res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
-// });
+app.get('/', function (req, res) {
+  console.log(req);
+  res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
+});
 
 // app.get(['/whatsapp'], function (req, res) {
 //   if (
