@@ -44,7 +44,7 @@ app.post('/whatsapp', async function (req, res) {
     // }
 
   console.log(`meu body: \n${JSON.stringify(req.body)}\n`)
-  const message = req.body.entry[0].changes[0].value.messages[0].text.body;
+  const message = req.body.entry[0].changes[0].value.messages[0].text;
   const phone = req.body.entry[0].changes[0].value.messages[0].from;
 
   let template;
