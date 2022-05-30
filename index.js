@@ -61,9 +61,11 @@ app.post('/whatsapp', async function (req, res) {
       template = 'projetos'
       break
     case 'Problemas com plataforma':
-
+      template = 'plataforma'
+      break
     case 'Formação de professores':
-
+      template = 'professores'
+      break
     default:
       template = 'boas_vindas'
   }
