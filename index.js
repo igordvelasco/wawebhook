@@ -24,16 +24,16 @@ app.get('/', function (req, res) {
   res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
 });
 
-// app.get(['/whatsapp'], function (req, res) {
-//   if (
-//     req.query['hub.mode'] == 'subscribe' &&
-//     req.query['hub.verify_token'] == token
-//   ) {
-//     res.send(req.query['hub.challenge']);
-//   } else {
-//     res.sendStatus(400);
-//   }
-// });
+app.get(['/whatsapp'], function (req, res) {
+  if (
+    req.query['hub.mode'] == 'subscribe' &&
+    req.query['hub.verify_token'] == token
+  ) {
+    res.send(req.query['hub.challenge']);
+  } else {
+    res.sendStatus(400);
+  }
+});
 
 // app.post('/whatsapp', async function (req, res) {
 //     // if (!req.isXHubValid()) {
