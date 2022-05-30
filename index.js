@@ -56,10 +56,6 @@ app.post('/whatsapp', async function (req, res) {
 
   let template;
 
-  console.log(`meu body: `, message,phone)
-
-  return res.send({template, phone})
-
   switch (message) {
     case 'Conhecer os projetos':
       template = 'projetos'
