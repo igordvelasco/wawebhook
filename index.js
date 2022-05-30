@@ -43,12 +43,13 @@ app.post('/whatsapp', async function (req, res) {
     // console.log('request header X-Hub-Signature validated');
     // }
 
-  console.log(`meu body: \n${JSON.stringify(req.body)}\n`)
-  const message = req.body.entry[0].changes[0].value.messages[0].text;
+  
+  const message = req.body.entry[0].changes[0].value.messages[0].text.body;
   const phone = req.body.entry[0].changes[0].value.messages[0].from;
 
   let template;
 
+  console.log(`meu body: `, message,phone)
   return res.send({template, phone})
 
   switch (message) {
