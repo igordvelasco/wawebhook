@@ -43,6 +43,8 @@ app.post('/whatsapp', async function (req, res) {
     // console.log('request header X-Hub-Signature validated');
     // }
 
+    console.log('reply do botão ', JSON.stringify(req.body))
+    return
   
   const message = req.body.entry[0].changes[0].value.messages[0].text.body;
   const phone = req.body.entry[0].changes[0].value.messages[0].from;
@@ -50,7 +52,7 @@ app.post('/whatsapp', async function (req, res) {
   let template;
 
   console.log(`meu body: `, message,phone)
-  console.log('reply do botão ', JSON.stringify(req.body))
+
   return res.send({template, phone})
 
   switch (message) {
