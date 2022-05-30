@@ -50,6 +50,7 @@ app.post('/whatsapp', async function (req, res) {
   let template;
 
   console.log(`meu body: `, message,phone)
+  console.log('reply do botão ', JSON.stringify(req.body))
   return res.send({template, phone})
 
   switch (message) {
