@@ -35,43 +35,44 @@ app.get(['/whatsapp'], function (req, res) {
   }
 });
 
-// app.post('/whatsapp', async function (req, res) {
-//     // if (!req.isXHubValid()) {
-//     //   console.log('Warning - request header X-Hub-Signature not present or invalid');
-//     //   res.sendStatus(401);
-//     //   return;
-//     // }
+app.post('/whatsapp', async function (req, res) {
+    // if (!req.isXHubValid()) {
+    //   console.log('Warning - request header X-Hub-Signature not present or invalid');
+    //   res.sendStatus(401);
+    //   return;
+    // console.log('request header X-Hub-Signature validated');
+    // }
 
-//   console.log('request header X-Hub-Signature validated');
+  const message = req.body[0].entry[0].changes[0].value.messages[0].text.body;
+  const phone = req.body[0].entry[0].changes[0].value.messages[0].from;
 
-//   const message = req.body[0].entry[0].changes[0].value.messages[0].text.body;
-//   const phone = req.body[0].entry[0].changes[0].value.messages[0].from;
+  return res.send("Essa caralha ta funcionando ate aqui!")
 
-//   let template;
+  let template;
 
-//   switch (message) {
-//     case 'Conhecer os projetos':
-//       template = 'projetos'
-//       break
-//     case 'Problemas com plataforma':
+  switch (message) {
+    case 'Conhecer os projetos':
+      template = 'projetos'
+      break
+    case 'Problemas com plataforma':
 
-//     case 'Formação de professores':
+    case 'Formação de professores':
 
-//     default:
-//       template = 'boas_vindas'
-//   }
+    default:
+      template = 'boas_vindas'
+  }
  
-//   await fetch('https://graph.facebook.com/v13.0/100679882671832/messages', {
-//     method: 'post',
-//     body: "{ \"messaging_product\": \"whatsapp\", \"to\": \""+phone+"\", \"type\": \"template\", \"template\": { \"name\": \""+template+"\", \"language\": { \"code\": \"pt_BR\" } } }",
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Authorization': `Bearer ${jwt}`
-//     }
-//   });
+  await fetch('https://graph.facebook.com/v13.0/100679882671832/messages', {
+    method: 'post',
+    body: "{ \"messaging_product\": \"whatsapp\", \"to\": \""+phone+"\", \"type\": \"template\", \"template\": { \"name\": \""+template+"\", \"language\": { \"code\": \"pt_BR\" } } }",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${jwt}`
+    }
+  });
 
-//   received_updates.unshift(req.body);
-//   res.sendStatus(200);
-// });
+  received_updates.unshift(req.body);
+  res.sendStatus(200);
+});
 
 app.listen();
