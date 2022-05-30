@@ -59,8 +59,6 @@ app.post('/whatsapp', async function (req, res) {
     default:
       template = 'boas_vindas'
   }
-
-  return res.json({phone, template})
  
   await fetch('https://graph.facebook.com/v13.0/100679882671832/messages', {
     method: 'post',
