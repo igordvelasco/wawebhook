@@ -1,0 +1,30 @@
+{
+  "name": "graph-api-webhooks-samples",
+  "version": "0.1.0",
+  "description": "Graph API Webhooks Sample",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.0",
+    "dotenv": "^16.0.1",
+    "express": "~4.13.3",
+    "express-x-hub": "^1.0.4",
+    "node-fetch": "^2.6.7"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbsamples/graph-api-webhooks-samples"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "graph api"
+  ],
+  "license": "ISC"
+}
