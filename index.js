@@ -46,8 +46,6 @@ app.post('/whatsapp', async function (req, res) {
   const message = req.body[0].entry[0].changes[0].value.messages[0].text.body;
   const phone = req.body[0].entry[0].changes[0].value.messages[0].from;
 
-  return res.send("Essa caralha ta funcionando ate aqui!")
-
   let template;
 
   switch (message) {
@@ -61,6 +59,8 @@ app.post('/whatsapp', async function (req, res) {
     default:
       template = 'boas_vindas'
   }
+
+  return res.json({phone, template})
  
   await fetch('https://graph.facebook.com/v13.0/100679882671832/messages', {
     method: 'post',
